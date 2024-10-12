@@ -1,24 +1,31 @@
 /* Name: Justine
-Date: 9/13/2024
-Program: Mario Project 1
-Description: Take in user input for how many bricks tall the pyramid should be and then build the pyramid in the console
+Date: 10/12/2024
+Program: Mario Project 3
+Description: Take user input and display a pyramid after a button has been clicked
 */
 
-userResponse = prompt("How many bricks tall should the pyramid be?"); // asks user for pyramid height
-printPyramid(userResponse); // inputs response to print pyramid function
+
 
 
 function printPyramid(height) {
-    let n = userResponse; // converts user response into variable n
-    let string = ""; // assigning an empty character value to the variable string
-    for (let i = 1; i <= n - 1; i++) { // starts first loop
-        for (let j = 0; j < n - i; j++) { // starts first inner loop
-            string += " "; 
+    let container = document.getElementById("pyramid"); // Finds container with ID of "pyramid"
+    container.innerHTML = ""; // Tells function to override whatever is in the pyramid <div>
+    let n = height; // Takes in user input as height parameter
+    for (let i = 1; i <= n; i++) { // Outer loop
+        let rowStr = ""; // Creates an empty string for each row
+        for (let j = 0; j < n - i; j++) { // First inner loop to replace blank spaces with periods so they will not be ignored by HTML
+            rowStr += "."; // Adds periods to blank spaces
         }
-        for (let k = - 1; k < i; k++) { // starts second inner loop
-            string += "#";
+        for (let k = - 1; k < i; k++) { // Second inner loop, places hashes as bricks based on user input
+            rowStr += "#"; // Assigning hashes as bricks
         }
-        string += "\n"; // puts each string of characters on a new line
+        container.innerHTML += rowStr + "<br>"; // Creates breaks between each row so pyramid appears stacked
     }
-    console.log(string); // prints out pyramid
 }
+
+
+function determineHeightAndThenDrawPyramid() { // function to intake user input after a button click and create a pyramid
+    var userResponse = document.getElementById("pHeight").value;
+    printPyramid(userResponse);
+}
+
