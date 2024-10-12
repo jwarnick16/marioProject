@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <script src="mario.js"></script>
+    <style>
+        #pyramid {
+            font-size: 16px;
+            font-family: monospace;
+            white-space: pre;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Mario 1</h1>
-    <p>
-        Want to see a beautiful pyramid?
-        Take a look at the Console.
-    </p>
-    <p><code>PROTIP #1:Repl.it shows the console by default.</code></p>
-    <p><code>PROTIP #2:You can open up the developer tools in Chrome by pressing f12!</code></p>
+    <h1>Mario 3</h1>
+
+    <br>
+
+    <p>When you say</p>
+
+    <p><strong>Draw a pyramid</strong></p>
+
+    <p>I say:</p>
+
+    <br>
+
+    <label for="pHeight">How high?</label>
+
+    <input type="number" id="pHeight" value="">
+
+    <br><br>
+
+    <button onclick="determineHeightAndThenDrawPyramid()">Draw a pyramid</button>
+
+    <br><br>
+    <br><br>
+
+    <div id="pyramid"></div>
+
+    <script src="mario.js"></script>
 </body>
+
 </html>
